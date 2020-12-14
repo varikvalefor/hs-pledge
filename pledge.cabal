@@ -1,12 +1,13 @@
 name:                pledge
 version:             0.1.0.0
 synopsis:            OpenBSD's pledge(2) for Haskell
-description:         Make OpenBSD kernel enforced promises about Haskell programs
+description:         Implement support for pledge(2) in OpenBSD
 license:             BSD3
 license-file:        LICENSE
-author:              Ossi Herrala
-maintainer:          oherrala@gmail.com
-copyright:           Ossi Herrala <oherrala@gmail.com>
+author:              VARIK VALEFOR
+maintainer:          varikvalefor@aol.com
+copyright:           VARIK VALEFOR <varikvalefor@aol.com>
+original-author:     Mr. OSSI HERRALA
 category:            System
 build-type:          Simple
 cabal-version:       >=1.10
