@@ -67,5 +67,5 @@ promise = map toLower . show
 promises :: Promises -> String
 promises [] = ""
 promises proms = if None `elem` proms
-                 then ""
-                 else unwords (map promise $ nub proms)
+                   then ""
+                   else unwords (map promise $ nub proms)
