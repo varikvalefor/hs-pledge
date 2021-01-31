@@ -37,33 +37,10 @@ pledge proms [] =
 pledge _ _ = error "pledge does not support [FilePath] yet"
 
 
--- | Convert Promise into String
---
--- >>> promise Stdio
--- "stdio"
 promise :: Promise -> String
 promise = map toLower . show
 
 
--- | Convert list of Promises into single String
---
--- >>> promises [Stdio]
--- "stdio"
---
--- >>> promises [Stdio, Coredump]
--- "stdio coredump"
---
--- >>> promises [Stdio, Coredump, Coredump, Stdio]
--- "stdio coredump"
---
--- >>> promises []
--- ""
---
--- >>> promises [None]
--- ""
---
--- >>> promises [Stdio, Coredump, None]
--- ""
 promises :: Promises -> String
 promises [] = ""
 promises proms = if None `elem` proms
