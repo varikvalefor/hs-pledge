@@ -1,6 +1,0 @@
-dist/
-*~
-*.hi
-*.o
-*.core
-ktrace.out
