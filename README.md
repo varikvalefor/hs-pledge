@@ -1,7 +1,7 @@
 Haskell library for OpenBSD's pledge(2)
 =======================================
 
-Example Haskell program:
+An example implementation is as follows:
 
     import System.Pledge
     import System.IO
