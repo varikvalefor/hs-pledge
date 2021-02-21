@@ -21,7 +21,6 @@ data Promise = Rpath    | Wpath     | Cpath  | Stdio | Tmppath | Dns     | Inet 
              | Coredump | Disklabel | Pf     | None
              deriving (Eq, Show)
 
-
 -- | Pledge a program
 pledge :: Promises -> [FilePath] -> IO ()
 
@@ -34,12 +33,10 @@ pledge proms [] =
       let c_paths = nullPtr in
             throwErrnoIfMinus1_ "pledge" $ c_pledge c_proms c_paths
 
-pledge _ _ = error "pledge does not support [FilePath] yet"
-
+pledge _ _ = error "pledge does not support [FilePath]."
 
 promise :: Promise -> String
 promise = map toLower . show
-
 
 promises :: Promises -> String
 promises [] = ""
