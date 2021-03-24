@@ -11,10 +11,10 @@ import System.FilePath (FilePath)
 
 foreign import ccall "unistd.h pledge" c_pledge :: CString -> Ptr [CString] -> IO Int
 
--- | List of promises to give
+-- List of promises to give
 type Promises = [Promise]
 
--- | Allowed promises. See OpenBSD's pledge(2) for documentation.
+-- Allowed promises. See OpenBSD's pledge(2) for documentation.
 data Promise = Rpath    | Wpath     | Cpath  | Stdio | Tmppath | Dns     | Inet   | Flock
              | Unix     | Id        | Ioctl  | Getpw | Proc    | Settime | Fattr  | Protexec
              | Tty      | Sendfd    | Recvfd | Exec  | Route   | Mcast   | Vminfo | Ps
