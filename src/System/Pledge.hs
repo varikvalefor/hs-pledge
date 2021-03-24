@@ -21,7 +21,7 @@ data Promise = Rpath    | Wpath     | Cpath  | Stdio | Tmppath | Dns     | Inet 
              | Coredump | Disklabel | Pf     | None
              deriving (Eq, Show)
 
--- | Pledge a program
+-- Pledge a program
 pledge :: Promises -> [FilePath] -> IO ()
 
 -- special case for completely empty pledge. Useful? Maybe not.
