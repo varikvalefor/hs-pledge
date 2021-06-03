@@ -1,7 +1,13 @@
 name:                pledge-vvx
 version:             0.1.0.1
 synopsis:            Haskell implementation of OpenBSD's pledge(2)
-description:         Implement support for OpenBSD's pledge(2)
+description:         This package implements Haskell support for
+                     OpenBSD's pledge(2).
+                     .
+                     pledge(2) is used to restrice programs'
+                     functionality... in a desirable way.  A superior
+                     description of pledge(2) is available at
+                     http://man.openbsd.org/pledge.2.
 license:             BSD3
 license-file:        LICENSE
 author:              VARIK VALEFOR
