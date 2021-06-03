@@ -14,7 +14,8 @@ foreign import ccall "unistd.h pledge" c_pledge :: CString -> Ptr [CString] -> I
 -- | Promises is an alias of [Promise].
 type Promises = [Promise]
 
--- Allowed promises. See OpenBSD's pledge(2) for documentation.
+-- | For all Promise k, k is a promise of pledge(2).  Documentation of
+-- such promises is available in manual page pledge(2).
 data Promise = Rpath    | Wpath     | Cpath  | Stdio | Tmppath | Dns     | Inet   | Flock
              | Unix     | Id        | Ioctl  | Getpw | Proc    | Settime | Fattr  | Protexec
              | Tty      | Sendfd    | Recvfd | Exec  | Route   | Mcast   | Vminfo | Ps
