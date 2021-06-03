@@ -11,6 +11,7 @@ import System.FilePath (FilePath)
 
 foreign import ccall "unistd.h pledge" c_pledge :: CString -> Ptr [CString] -> IO Int
 
+-- | Promises is an alias of [Promise].
 type Promises = [Promise]
 
 -- Allowed promises. See OpenBSD's pledge(2) for documentation.
@@ -20,6 +21,9 @@ data Promise = Rpath    | Wpath     | Cpath  | Stdio | Tmppath | Dns     | Inet 
              | Coredump | Disklabel | Pf     | None
              deriving (Eq, Show)
 
+-- | For all Promises k, for all [FilePath] g, pledge k g is roughly equivalent
+-- to the C pledge(prmises k, g).  However, the whitelisting of filepaths is
+-- currently unsupported.
 pledge :: Promises -> [FilePath] -> IO ()
 
 -- special case for completely empty pledge. Useful? Maybe not.
@@ -33,9 +37,13 @@ pledge proms [] =
 
 pledge _ _ = error "pledge does not support [FilePath]."
 
+-- | For all Promise k, promise k equals a lowercase String representation
+-- of k.
 promise :: Promise -> String
 promise = map toLower . show
 
+-- | For all Promises k, promises k equals a String representation of k which
+-- is compatible with C's pledge.
 promises :: Promises -> String
 promises [] = ""
 promises proms 
