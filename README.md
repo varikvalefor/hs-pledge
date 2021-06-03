@@ -11,4 +11,4 @@ An example implementation is as follows:
       print "Pledge works." >>
       readFile "/dev/urandom" >>= putStr;
 
-pledge(2) kills the program when withFile tries to read from /dev/urandom.
+pledge(2) kills above example program when withFile tries to read from /dev/urandom.
