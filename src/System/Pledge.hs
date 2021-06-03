@@ -35,7 +35,7 @@ pledge proms [] =
       let c_paths = nullPtr in
             throwErrnoIfMinus1_ "pledge" $ c_pledge c_proms c_paths
 
-pledge _ _ = error "pledge does not support [FilePath]."
+pledge _ _ = error "Pledge does not support [FilePath]."
 
 -- | For all Promise k, promise k equals a lowercase String representation
 -- of k.
