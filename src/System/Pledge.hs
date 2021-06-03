@@ -25,16 +25,13 @@ data Promise = Rpath    | Wpath     | Cpath  | Stdio | Tmppath | Dns     | Inet 
 -- to the C pledge(prmises k, g).  However, the whitelisting of filepaths is
 -- currently unsupported.
 pledge :: Promises -> [FilePath] -> IO ()
-
 -- special case for completely empty pledge. Useful? Maybe not.
 pledge [] _ = throwErrnoIfMinus1_ "pledge" $ c_pledge nullPtr nullPtr
-
 -- Generic case, but we don't support giving whilelist of paths yet
 pledge proms [] =
   withCString (promises proms) $ \c_proms ->
       let c_paths = nullPtr in
             throwErrnoIfMinus1_ "pledge" $ c_pledge c_proms c_paths
-
 pledge _ _ = error "Pledge does not support [FilePath]."
 
 -- | For all Promise k, promise k equals a lowercase String representation
